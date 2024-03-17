@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="out/ODD_TEI_Projet_Final.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<teiCorpus version="3.3.0" xmlns="http://www.tei-c.org/ns/1.0" xml:lang="FR">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title level="m">Projet final de TEI : quatre personnages de la mythologie grecque
+                    dans le Dictionnaire de Trévoux, éd. 1771</title>
+                <author><persName ref="#rvichot">Ronan Vichot</persName>, étudiant en M2 TNAH à
+                        l'<orgName ref="#enc">Ecole nationale des chartes</orgName> <date from="2023"
+                        to="2024">(2023-2024)</date></author>
+                <sponsor>
+                    <orgName ref="#enc">Ecole nationale des chartes</orgName>
+                </sponsor>
+                <respStmt>
+                    <persName ref="#salbouy">Ségolène Albouy</persName>
+                    <resp>Chargée de cours de TEI à l'<orgName ref="#enc">Ecole nationale des
+                            chartes</orgName>, responsable de l'évaluation du présent devoir
+                        final.</resp>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition>Devoir final de TEI</edition>
+                <respStmt>
+                    <persName ref="#rvichot">Ronan Vichot</persName>
+                    <resp>Etudiant responsable de l'encodage du présent document</resp>
+                </respStmt>
+            </editionStmt>
+            <publicationStmt>
+                <publisher ref="#enc">Ecole nationale des chartes</publisher>
+                <address>
+                    <addrLine>65, rue de Richelieu, 75002 <placeName ref="#paris"
+                        >Paris</placeName></addrLine>
+                </address>
+                <date when="2024-02-09">17 mars 2024</date>
+            </publicationStmt>
+            <sourceDesc>
+                <!--Métadonnées de la série du dictionnaire, valable pour tous les tomes-->
+                <bibl type="serie">
+                    <title type="main" level="s">Dictionnaire universel françois et latin <title
+                            type="subtitle">Vulgairement appelé Dictionnaire de Trévoux</title>
+                        <desc>Contenant la signification &amp; la définition des mots de l'une &amp;
+                            de l'autre langue, avec leurs différens usages ; les termes propres de
+                            chaque etat &amp; de chaque profession : la description de toutes les
+                            choses naturelles &amp; artificielles ; leurs figures, leurs espèces,
+                            leurs propriétés : L'explication de tout ce que renferment les sciences
+                            &amp; les arts, soit libéraux, soit méchaniques, &amp;c. Avec des
+                            remarques d'érudition et de critique ; Le tout tiré des plus excellens
+                            auteurs, des meilleurs lexicographes, etymologistes &amp; glossaires, qui
+                            ont paru jusqu'ici en différentes langues.</desc>
+                    </title>
+                    <author><orgName ref="#cla">Compagnie des libraires associés</orgName></author>
+                    <pubPlace><placeName>Paris</placeName></pubPlace>
+                    <edition>Nouvelle édition, corrigée et considérablement augmentée.</edition>
+                    <date when="1771">M. DCC. LXXI.</date>
+                    <note>Avec approbation et privilège du roi.</note>
+                </bibl>
+                <!--Liste des tomes dont sont issus les entrées sélectionnées-->
+                <listBibl>
+                    <biblStruct xml:id="tome_1" type="volume" n="1" xml:lang="FR">
+                        <monogr>
+                            <title type="sub">Tome premier</title>
+                            <ref type="URL" target="https://gallica.bnf.fr/ark:/12148/bpt6k50980z"/>
+                            <idno>ark:/12148/bpt6k50980z</idno>
+                            <imprint>
+                                <biblScope unit="volume" n="1" from="A" to="Boulets"/>
+                                <pubPlace ref="#paris">Paris</pubPlace>
+                                <publisher>Bibliothèque nationale de France</publisher>
+                                <date when="2007-10-15"/>
+                                <note>en ligne</note>
+                            </imprint>
+                        </monogr>
+                    </biblStruct>
+                    <biblStruct xml:id="tome_4" type="volume" n="4" xml:lang="FR">
+                        <monogr>
+                            <title type="sub">Tome quatrième</title>
+                            <ref type="URL" target="https://gallica.bnf.fr/ark:/12148/bpt6k509830"/>
+                            <idno>ark:/12148/bpt6k509830</idno>
+                            <imprint>
+                                <biblScope unit="volume" n="4" from="F" to="Jamès"/>
+                                <pubPlace ref="#paris">Paris</pubPlace>
+                                <publisher>Bibliothèque nationale de France</publisher>
+                                <date when="2007-10-15"/>
+                                <note>en ligne</note>
+                            </imprint>
+                        </monogr>
+                    </biblStruct>
+                    <biblStruct xml:id="tome_6" type="volume" n="6" xml:lang="FR">
+                        <monogr>
+                            <title type="sub">Tome sixième</title>
+                            <ref type="URL" target="https://gallica.bnf.fr/ark:/12148/bpt6k50985p"/>
+                            <idno>ark:/12148/bpt6k50985p</idno>
+                            <imprint>
+                                <biblScope unit="volume" n="6" from="Mithridate" to="Proféides"/>
+                                <pubPlace ref="#paris">Paris</pubPlace>
+                                <publisher>Bibliothèque nationale de France</publisher>
+                                <date when="2007-10-15"/>
+                                <note>en ligne</note>
+                            </imprint>
+                        </monogr>
+                    </biblStruct>
+                </listBibl>
+                <!--Index des personnes réelles mentionnées dans le présent document-->
+                <listPerson type="réels_actuels">
+                    <person xml:id="salbouy">
+                        <persName><surname>Albouy</surname>, <forename>Ségolène</forename>
+                            </persName>
+                        <occupation>
+                            <roleName>Enseignante</roleName> à l'<orgName ref="#enc">Ecole nationale des
+                                chartes</orgName>
+                            <email>segolene.albouy@gmail.com</email>
+                        </occupation>
+                    </person>
+                    <person xml:id="rvichot">
+                        <persName><surname>Vichot</surname>, <forename>Ronan</forename>
+                        </persName>
+                        <occupation>
+                            <roleName>Etudiant</roleName> à l'<orgName ref="#enc">Ecole nationale des
+                                chartes</orgName>
+                            <email>ronan.vichot@chartes.psl.eu</email>
+                            <email>ronan.vichot@outlook.fr</email>
+                        </occupation>
+                    </person>
+                </listPerson>
+                <!--Index des auteurs antiques, médiévaux ou modernes mentionnés dans les entrées encodées-->
+                <listPerson type="réels_passés">
+                    <person xml:id="amarcellin">
+                        <persName>Ammien Marcellin</persName>
+                        <occupation>
+                            <roleName>Historien</roleName>
+                        </occupation>
+                        <nationality>Grec</nationality>
+                        <langKnowledge><langKnown tag="LAT">Latin</langKnown></langKnowledge>
+                        <birth when="0335">Vers 335</birth>
+                        <death when="0400">Vers 400</death>
+                        <note><ref type="URL"
+                            target="https://www.larousse.fr/encyclopedie/litterature/Ammien_Marcellin/170936"
+                            >Notice Larousse</ref></note>
+                    </person>
+                    <person xml:id="annius">
+                        <persName>Annius <nameLink>de </nameLink>
+                            <settlement>Viterbe</settlement></persName>
+                        <occupation>
+                            <roleName>Historien</roleName>, <roleName>faussaire</roleName>
+                        </occupation>
+                        <nationality>Italien</nationality>
+                        <langKnowledge><langKnown tag="LAT">Latin</langKnown></langKnowledge>
+                        <birth when="1432">Vers 1432</birth>
+                        <death when="1502">1502</death>
+                        <note><ref type="URL"
+                            target="https://catalogue.bnf.fr/ark:/12148/cb12037519j"
+                            >Notice BnF</ref></note>
+                    </person>
+                    <person xml:id="berose">
+                        <persName>Bérose</persName>
+                        <occupation>
+                            <roleName>Prêtre</roleName>, <roleName>historien</roleName>
+                        </occupation>
+                        <nationality>Babylonien</nationality>
+                        <langKnowledge><langKnown tag="GR">Grec</langKnown></langKnowledge>
+                        <birth from="-0300" to="-0201">IVe siècle av. J.-C.</birth>
+                        <death from="-0300" to="-0201">IVe siècle av. J.-C.</death>
+                        <note><ref type="URL"
+                            target="https://catalogue.bnf.fr/ark:/12148/cb12462278b"
+                            >Notice BnF</ref></note>
+                    </person>
+                    <person xml:id="diodore">
+                        <persName>Diodore <nameLink>de </nameLink>
+                            <region ref="#sicile">Sicile</region></persName>
+                        <occupation>
+                            <roleName>Historien</roleName>
+                        </occupation>
+                        <nationality>Grec</nationality>
+                        <birth when="-0090">Vers 90 av. J.-C.</birth>
+                        <death from="-0025" to="-0001">Fin du Ier siècle av. J.-C.</death>
+                        <note><ref type="URL"
+                            target="https://www.larousse.fr/encyclopedie/personnage/Diodore_de_Sicile/116567"
+                            >Notice Larousse</ref></note>
+                    </person>
+                    <person xml:id="eustathe">
+                        <persName>Eustathe <nameLink>de </nameLink>
+                            <settlement>Thessalonique</settlement></persName>
+                        <occupation>
+                            <roleName>Erudit</roleName>, <roleName>évêque</roleName>
+                        </occupation>
+                        <nationality>Byzantin</nationality>
+                        <langKnowledge><langKnown tag="GR">Grec</langKnown></langKnowledge>
+                        <birth when="1100">Vers 1110</birth>
+                        <death when="1194">Vers 1194</death>
+                        <note><ref type="URL"
+                            target="https://catalogue.bnf.fr/ark:/12148/cb12157732w"
+                            >Notice BnF</ref></note>
+                    </person>
+                    <person xml:id="tgale">
+                        <persName><surname>Gale</surname>, <forename>Thomas</forename>
+                        </persName>
+                        <occupation>
+                            <roleName>Erudit</roleName></occupation>
+                        <nationality>Anglais</nationality>
+                        <langKnowledge>
+                            <langKnown tag="GR">Grec</langKnown>
+                            <langKnown tag="LAT">Latin</langKnown>
+                        </langKnowledge>
+                        <birth when="1636">1636</birth>
+                        <death when="1702">1702</death>
+                        <note><ref type="URL"
+                            target="https://catalogue.bnf.fr/ark:/12148/cb120725880"
+                            >Notice BnF</ref></note>
+                    </person>
+                    <person xml:id="gregoire">
+                        <persName>Grégoire <nameLink>de</nameLink>
+                            <settlement>Tours</settlement></persName>
+                        <occupation>
+                            <roleName>Ecrivain</roleName>, <roleName>évêque</roleName>
+                        </occupation>
+                        <nationality>Gallo-romain</nationality>
+                        <langKnowledge>
+                            <langKnown tag="LAT">Latin</langKnown>
+                        </langKnowledge>
+                        <birth when="0538">538</birth>
+                        <death when="0594">Vers 594</death>
+                        <note><ref type="URL"
+                            target="https://www.larousse.fr/encyclopedie/litterature/Gr%C3%A9goire_de_Tours/173680"
+                            >Notice Larousse</ref></note>
+                    </person>
+                    <person xml:id="herodote">
+                        <persName>Hérodote</persName>
+                        <occupation>
+                            <roleName>Historien</roleName>
+                        </occupation>
+                        <nationality>Grec</nationality>
+                        <birth when="-0484">Vers 484 av. J.-C.</birth>
+                        <death when="-0420">Vers 420 av. J.-C.</death>
+                        <note><ref type="URL"
+                            target="https://www.larousse.fr/encyclopedie/litterature/Gr%C3%A9goire_de_Tours/173680"
+                            >Notice Larousse</ref></note>
+                    </person>
+                    <person xml:id="hesiode">
+                        <persName>Hésiode</persName>
+                        <occupation>
+                            <roleName>Poète</roleName>
+                        </occupation>
+                        <nationality>Grec</nationality>
+                        <birth from="-0800" to="-0701">VIIIe siècle av. J.-C.</birth>
+                        <death from="-0700" to="-0601">VIIe siècle av. J.-C.</death>
+                        <note><ref type="URL"
+                            target="https://www.larousse.fr/encyclopedie/personnage/H%C3%A9siode/123820"
+                            >Notice Larousse</ref></note>
+                    </person>
+                    <person xml:id="homere">
+                        <persName>Homère</persName>
+                        <occupation>
+                            <roleName>Poète</roleName>
+                        </occupation>
+                        <nationality>Grec</nationality>
+                        <birth from="-0800" to="-0701">VIIIe siècle av. J.-C.</birth>
+                        <death from="-0800" to="-0701">VIIIe siècle av. J.-C.</death>
+                        <note><ref type="URL"
+                            target="https://www.larousse.fr/encyclopedie/personnage/Hom%C3%A8re/124178"
+                            >Notice Larousse</ref></note>
+                    </person>
+                    <person xml:id="ovide">
+                        <persName>Ovide</persName>
+                        <occupation>
+                            <roleName>Poète</roleName>
+                        </occupation>
+                        <nationality>Romain</nationality>
+                        <langKnowledge>
+                            <langKnown tag="LAT">Latin</langKnown>
+                        </langKnowledge>
+                        <birth when="-0043">43 av. J.-C.</birth>
+                        <death when="0018">Vers 18 ap. J.-C.</death>
+                        <note><ref type="URL"
+                            target="https://www.larousse.fr/encyclopedie/personnage/Ovide/136660"
+                            >Notice Larousse</ref></note>
+                    </person>
+                </listPerson>
+                <!--Index des personnages mythologiques mentionnés dans les entrées encodées-->
+                <listPerson type="mythologiques">
+                    <person xml:id="acis">
+                        <persName>Acis</persName>
+                        <trait>
+                            <desc>Jeune berger, amant de <persName ref="#galatee"
+                                >Galatée</persName></desc>
+                        </trait>
+                        <death>Tué par <persName ref="#polypheme">Polyphème</persName></death>
+                        <note><ref type="URL"
+                            target="https://www.larousse.fr/encyclopedie/mythologie/Acis/188818"
+                            >Notice Larousse</ref></note>
+                    </person>
+                    <person xml:id="doris">
+                        <persName>Doris</persName>
+                        <trait>
+                            <desc>Divinité marine, mère des Néréides, épouse de <persName ref="#neree">Nérée</persName></desc>
+                        </trait>
+                        <note><ref type="URL"
+                            target="https://www.larousse.fr/encyclopedie/divers/Doris/116933"
+                            >Notice Larousse</ref></note>
+                    </person>
+                    <person xml:id="elpe">
+                        <persName>Elpé</persName>
+                        <trait>
+                            <desc>Fille du <roleName>roi de <region ref="#sicile"
+                                >Sicile</region></roleName> (ou <persName ref="#polypheme">Polyphème</persName>), enlevée par <persName ref="#ulysse"
+                                    >Ulysse</persName></desc>
+                        </trait>
+                    </person>
+                    <person xml:id="faune">
+                        <persName>
+                            <name xml:lang="FR" type="proper" subtype="origin:Lat">Faune</name>
+                            <name xml:lang="LAT" type="proper">Faunus</name>
+                        </persName>
+                        <trait>
+                            <desc>Dieu romain des forêts et des plaines</desc>
+                        </trait>
+                        <note><ref type="URL"
+                            target="https://www.larousse.fr/dictionnaires/francais/faune/33025"
+                            >Notice Larousse</ref></note>
+                    </person>
+                    <person xml:id="galatee">
+                        <persName>Galatée</persName>
+                        <trait>
+                            <desc>Nymphe marine (Néréide)</desc>
+                        </trait>
+                        <note><ref type="URL"
+                                target="https://www.larousse.fr/encyclopedie/mythologie/Galat%C3%A9e/189719"
+                                >Notice Larousse</ref></note>
+                    </person>
+                    <person xml:id="galatus">
+                        <persName>Galatus</persName>
+                        <trait>
+                            <desc>Fils de <persName ref="#galatee">Galatée</persName></desc>
+                        </trait>
+                    </person>
+                    <person xml:id="hercule">
+                        <persName>
+                            <name xml:lang="FR" type="proper">Hercule</name>
+                            <name xml:lang="FR" type="proper" subtype="origin:Gr">Héraklès</name>
+                        </persName>
+                        <trait>
+                            <desc>Dieu greco-romain</desc>
+                        </trait>
+                        <note><ref type="URL"
+                            target="https://www.larousse.fr/encyclopedie/mythologie/Hercule/189814"
+                            >Notice Larousse</ref></note>
+                    </person>
+                    <person xml:id="neptune">
+                        <persName>
+                            <name xml:lang="FR" type="proper" subtype="origin:Lat">Neptune</name>
+                            <name xml:lang="FR" type="proper" subtype="origin:Gr">Poséidon</name>
+                        </persName>
+                        <trait>
+                            <desc>Dieu de la Mer dans le panthéon gréco-romain</desc>
+                        </trait>
+                        <note><ref type="URL"
+                            target="https://www.larousse.fr/encyclopedie/mythologie/Neptune/190320"
+                            >Notice Larousse</ref></note>
+                    </person>
+                    <person xml:id="neree">
+                        <persName>Nérée</persName>
+                        <trait>
+                            <desc>Divinité marine, père des Néréides, époux de <persName ref="#doris">Doris</persName></desc>
+                        </trait>
+                        <note><ref type="URL"
+                            target="https://www.larousse.fr/encyclopedie/mythologie/N%C3%A9r%C3%A9e/190321"
+                            >Notice Larousse</ref></note>
+                    </person>
+                    <person xml:id="polypheme">
+                        <persName>Polyphème</persName>
+                        <trait>
+                            <desc>Cyclope</desc>
+                        </trait>
+                        <note><ref type="URL"
+                            target="https://www.larousse.fr/encyclopedie/mythologie/Polyph%C3%A8me/190649"
+                            >Notice Larousse</ref></note>
+                    </person>
+                    <person xml:id="simaethis">
+                        <persName>Simæthis</persName>
+                        <trait>
+                            <desc>Nymphe marine (Néréide), mère d'<persName ref="#acis">Acis</persName></desc>
+                        </trait>
+                    </person>
+                    <person xml:id="ulysse">
+                        <persName>Ulysse</persName>
+                        <trait>
+                            <desc>Héros de l'<bibl><title>Odyssée</title> d'<author ref="#homere"
+                                        >Homère</author></bibl></desc>
+                        </trait>
+                        <note><ref type="URL"
+                                target="https://www.larousse.fr/encyclopedie/mythologie/Ulysse/191033"
+                                >Notice Larousse</ref></note>
+                    </person>
+                </listPerson>
+                <!--Index des institutions et autres organismes mentionnés dans le présent document-->
+                <listOrg>
+                    <org xml:id="enc">
+                        <orgName>Ecole nationale des chartes</orgName>
+                        <desc>
+                            <label>Ecole nationale française</label>
+                            <ref type="URL" target="https://www.chartes.psl.eu/">Site web de
+                                l'école</ref>
+                            <date from="1821">Fondée en 1821</date>
+                        </desc>
+                    </org>
+                    <org xml:id="cla">
+                        <orgName>Compagnie des libraires associés</orgName>
+                        <desc>
+                            <label>Imprimeur et libraire français</label>
+                            <ref type="URL"
+                                target="https://data.bnf.fr/fr/12470184/compagnie_des_libraires_associes_paris_1697-1773/"
+                                >Notice descriptive de la compagnie</ref>
+                            <date from="1697">Fondée en 1697</date>
+                            <date to="1773">Fermée en 1773</date>
+                        </desc>
+                    </org>
+                </listOrg>
+                <!--Index des lieux figurant dans les entrées encodées ou les métadonnées du présent document-->
+                <listPlace>
+                    <place xml:id="paris">
+                        <settlement>Paris</settlement>
+                        <location>
+                            <country>France</country>
+                        </location>
+                        <place>
+                            <placeName ref="#enc">Ecole nationale des chartes</placeName>
+                            <location>
+                                <address>
+                                    <addrLine>65, rue de Richelieu</addrLine>
+                                </address>
+                            </location>
+                        </place>
+                    </place>
+                    <place xml:id="sicile">
+                        <region>Sicile</region>
+                        <place xml:id="etna">
+                            <geogName>Mont Etna</geogName>
+                            <location>
+                                <geogFeat>Volcan</geogFeat>
+                                <geo>37.721667 14.995</geo>
+                            </location>
+                        </place>
+                    </place>
+                    <place xml:id="thrace">
+                        <region>Thrace</region>
+                        <place xml:id="constantinople">
+                            <settlement>
+                                <name xml:lang="FR" type="proper" subtype="origin:Gr"
+                                    >Constantinople</name>
+                                <name xml:lang="FR" type="proper" subtype="origin:Gr">Byzance</name>
+                                <name xml:lang="TU" type="proper">İstanbul</name>
+                            </settlement>
+                        </place>
+                    </place>
+                </listPlace>
+            </sourceDesc>
+        </fileDesc>
+        <!--Contexte de création du document-->
+        <encodingDesc>
+            <projectDesc>
+                <p>Ce document fait l'objet d'une édition dans le cadre du cours de XML TEI dispensé
+                    par Mme <persName ref="#salbouy">Ségolène ALBOUY</persName> en M2 "Technologies
+                    numériques appliquées à l'histoire", à l'<orgName ref="#enc">Ecole nationale des
+                        chartes</orgName>, lors de l'année universitaire 2023-2024.</p>
+            </projectDesc>
+        </encodingDesc>
+        <!--Résumé du contenu des extraits encodés-->
+        <profileDesc>
+            <langUsage>
+                <language ident="FR"/>
+            </langUsage>
+            <abstract>
+                <p>Les quatre entrées sélectionnées dans ce projet éditorial font référence à des personnages de la mythologie grecque liés par leur histoire : Acis (1), jeune berger, est l'amant de Galatée (2), nymphe marine et fille de Nérée (3). Jaloux de la relation qu'Acis entretient avec Galatée, le cyclope Polyphème (4) le tue.</p>
+            </abstract>
+        </profileDesc>
+    </teiHeader>
+    <!--Première entrée : Acis-->
+    <TEI n="1">
+        <teiHeader>
+            <fileDesc>
+                <titleStmt>
+                    <title>Édition de l'article "ACIS"</title>
+                </titleStmt>
+                <publicationStmt>
+                    <publisher ref="#enc">Ecole nationale des chartes</publisher>
+                </publicationStmt>
+                <sourceDesc>
+                    <biblStruct ref="#tome_1"/>
+                </sourceDesc>
+            </fileDesc>
+        </teiHeader>
+        <text>
+            <body>
+                <entry>
+                    <!-- Mot-clé et prononciation -->
+                    <form type="headword">
+                        <orth><persName ref="#acis">ACIS</persName></orth>
+                        <ref target="https://gallica.bnf.fr/ark:/12148/bpt6k50980z/f112.item"/>
+                    </form>
+                    <!-- Définition -->
+                    <sense>
+                        <def>Terme de Mythologie. C’est le nom d’un fils de <persName ref="#faune"
+                                >Faune</persName> &amp; de la Nymphe <persName ref="#simaethis"
+                                >Simæthis</persName>. Son extrême beauté lui attira la bienveillance
+                            de la Nymphe <persName ref="#galatee">Galatée</persName>, qui étoit
+                            aimée de <persName ref="#polypheme">Polyphême</persName>. Ce Cyclope en
+                            devint si jaloux, qu’il écrasa son rival d’un morceau de rocher, dans le
+                            temps qu’il étoit avec <persName ref="#galatee">Galatée</persName>. La
+                            Nymphe pénétrée de douleur, métamorphosa son amant en une fontaine, ou
+                            rivière qui fut nommée de son nom, &amp; qui coule dans la mer de
+                                <region ref="#sicile">Sicile</region>. <bibl><author ref="#ovide"
+                                    >Ovide</author>, <title corresp="Les Métamorphoses" rend="i"
+                                    >Métamor.</title>
+                                <biblScope unit="verse">L. 13.</biblScope></bibl><bibl rend="i"
+                            > </bibl> Quelques Mythologistes disent que ce qui engagea le Géant
+                                <persName ref="#polypheme">Polyphême</persName> à tuer le Berger
+                                <persName ref="#acis" rend="i">Acis</persName>, c’est parce qu’il
+                            refusoit de répondre à son amour.</def>
+                    </sense>
+                    <!-- Etymologie -->
+                    <etym>
+                        <lang>Grec</lang>
+                    </etym>
+                    <!-- Groupe grammatical -->
+                    <gramGrp>
+                        <pos><reg>Nom propre</reg></pos>
+                        <number>
+                            <choice>
+                                <orig><abbr>s.</abbr></orig>
+                                <reg>singulier</reg>
+                            </choice>
+                        </number>
+                        <gen>
+                            <choice>
+                                <orig><abbr>m.</abbr></orig>
+                                <reg>masculin</reg>
+                            </choice>
+                        </gen>
+                    </gramGrp>
+                </entry>
+            </body>
+        </text>
+    </TEI>
+    <!--Deuxième entrée : Galatée-->
+    <TEI n="2">
+        <teiHeader>
+            <fileDesc>
+                <titleStmt>
+                    <title>Édition de l'article "GALATHÉE"</title>
+                </titleStmt>
+                <publicationStmt>
+                    <publisher ref="#enc">Ecole nationale des chartes</publisher>
+                </publicationStmt>
+                <sourceDesc>
+                    <biblStruct ref="#tome_4"/>
+                </sourceDesc>
+            </fileDesc>
+        </teiHeader>
+        <text>
+            <body>
+                <entry>
+                    <!-- Mot-clé et prononciation -->
+                    <form type="headword">
+                        <orth>
+                            <persName ref="#galatee">
+                                <name xml:lang="FR" type="proper">GALATHÉE</name>
+                                <name xml:lang="FR" type="proper">GALATÉE</name>
+                                <name xml:lang="GR" type="proper">Γαλάτεια</name>
+                            </persName>
+                        </orth>
+                        <ref target="https://gallica.bnf.fr/ark:/12148/bpt6k509830/f382.item"/>
+                    </form>
+                    <!-- Définitions -->
+                    <sense>
+                        <def n="1">Nom d'une Nymphe marine. <persName ref="#galatee" rend="i"
+                                >Galathea</persName>, en Grec <persName ref="#galatee" xml:lang="GR"
+                                >Γαλάτεια</persName>. La Nymphe <persName ref="#galatee" rend="i"
+                                >Galathée</persName> étoit la fille de <persName ref="#neree"
+                                >Nérée</persName> &amp; de <persName ref="#doris">Doris></persName>.
+                                    <bibl><author ref="#hesiode">Hésiode</author>, <title
+                                    corresp="La Théogonie" rend="i">Théogon.</title>
+                                <biblScope unit="verse">v. 250</biblScope></bibl>. Le nom de <name
+                                type="proper" rend="i">Galatée</name> vient du Latin <name
+                                xml:lang="LAT" type="proper" rend="i">Galatea</name>, formé du Grec
+                                <name xml:lang="GR" type="proper">Γαλάτεια</name> : <name
+                                xml:lang="GR" type="common">Γαλά</name>, lait, est la racine de ce
+                            mot. La blancheur de cette Nymphe lui fit donner le nom de <persName
+                                ref="#galatee" rend="i">Galatée</persName>. <persName
+                                ref="#eustathe">Eustathius</persName> est d'un autre sentiment sur
+                            le quarantième de l'<bibl><author ref="#homere"/><title rend="i"
+                                    >Iliade</title></bibl><bibl><author ref="#eustathe"/><title
+                                    corresp="Parekbolai"/><biblScope unit="page">p.
+                                1131</biblScope></bibl>. Il croit qu'elle fut ainsi appellée
+                            parcequ'elle donnoit la tranquillité à la mer, ou que c'étoit la mer
+                            même dont l'écume fait blanchir les flots. C'est encore le nom d'une
+                            fille d'un <roleName>Roi des Celtes</roleName>, qui, dit-on, donna son
+                            nom aux Gaulois &amp; à la <region>Gaule</region>. Elle fut femme d'un
+                                <roleName>Roi des Gaulois</roleName>, qu'on dit être l'<persName
+                                ref="#hercule">Hercule</persName> de <region>Libye</region>, &amp;
+                            mere de <persName ref="#galatus">Galatus</persName>.</def>
+                        <def n="2"><name type="proper">GALATÉE</name> est aussi une ville de <region
+                                ref="#thrace">Thrace</region>, dont parle <persName ref="#gregoire"
+                                >Grégoire de Tours</persName>, &amp; que l'on place à cent cinquante
+                            milles ; c'est-à-dire, à cinquante lieues de <settlement
+                                ref="#constantinople">Bysance</settlement>.</def>
+                        <def n="3"><name type="common">GALATÉE</name>. Terme de Fleuriste. C'est le nom
+                            d'une tulipe qui est panachée d'un isabelle blanchissant, avec du jaune
+                            dorée. <bibl><author>MORIN</author></bibl>.</def>
+                    </sense>
+                    <!-- Etymologie -->
+                    <etym>
+                        <lang>Grec</lang>
+                    </etym>
+                    <!-- Groupe grammatical -->
+                    <gramGrp>
+                        <pos><reg>Nom propre</reg></pos>
+                        <number>
+                            <choice>
+                                <orig><abbr>s.</abbr></orig>
+                                <reg>singulier</reg>
+                            </choice>
+                        </number>
+                        <gen>
+                            <choice>
+                                <orig><abbr>f.</abbr></orig>
+                                <reg>féminin</reg>
+                            </choice>
+                        </gen>
+                    </gramGrp>
+                    <!-- Références externes-->
+                    <xr n="1">
+                        <w rend="i">Voyez</w>
+                        <bibl><author ref="#herodote">Hérodote</author>, <biblScope unit="line">L. II</biblScope></bibl><w>,</w>
+                        <bibl><author ref="#amarcellin">Ammien Marcellin</author>, <biblScope unit="line">L. XV</biblScope></bibl><w>,</w>
+                        <bibl><ref target="https://www.persee.fr/doc/barb_0001-4133_1983_num_69_1_55625"
+                                >le faux <persName ref="#berose">Bérose</persName></ref> d'<author
+                                    ref="#annius">Annius de Viterbe</author>, <biblScope unit="line">L. V</biblScope></bibl><w>, &amp;</w>
+                        <bibl><author ref="#diodore">Diodore de Sicile</author>, <biblScope unit="line">L. IV</biblScope></bibl><w>.</w>
+                    </xr>
+                </entry>
+            </body>
+        </text>
+    </TEI>
+    <!--Troisième entrée : Nérée-->
+    <TEI n="3">
+        <teiHeader>
+            <fileDesc>
+                <titleStmt>
+                    <title>Édition de l'article "NÉRÉE"</title>
+                </titleStmt>
+                <publicationStmt>
+                    <publisher ref="#enc">Ecole nationale des chartes</publisher>
+                </publicationStmt>
+                <sourceDesc>
+                    <biblStruct ref="#tome_6"/>
+                </sourceDesc>
+            </fileDesc>
+        </teiHeader>
+        <text>
+            <body>
+                <entry>
+                    <!-- Mot-clé et prononciation -->
+                    <form type="headword">
+                        <orth><persName ref="#neree">NÉRÉE</persName></orth>
+                        <ref target="https://gallica.bnf.fr/ark:/12148/bpt6k50985p/f178.item"/>
+                    </form>
+                    <!-- Définition -->
+                    <sense>
+                        <def>Terme de Mythologie. L'un des Dieux des mers, <persName xml:lang="GR" ref="#neree" rend="i">Nereus</persName>.
+                        Les Poëtes lui supposent cinquante filles, qu'on appelle <orgName xml:lang="FR" rend="i">Néréides</orgName>.
+                        <persName xml:lang="FR" ref="#neree" rend="i">Nérée</persName>, selon quelques Auteurs, étoit fils de <persName ref="#neptune">Neptune</persName> &amp; de la Nymphe <persName ref="#canache">Canache</persName>.
+                        <persName ref="#apollodore">Apollodore</persName> est de ce sentiment,
+                            <bibl><author ref="#apollodore"/><title corresp="Bibliothèque"/><biblScope unit="line">L. I.</biblScope></bibl>.
+                            Mais <bibl><author ref="#hesiode">Hésiode</author>, <title
+                                corresp="La Théogonie" rend="i">Théog.</title>
+                                <biblScope unit="verse">v. 233</biblScope></bibl>,
+                            dit qu'il étoit fils aîné du Pont, c'est-à-dire, l'Elément maritime ;
+                            qu'il faut surnommé le Vieux, parce qu'il étoit vrai, paisible, &amp;
+                            qu'il ne s'éloignoit jamais du droit &amp; de l'équité.
+                            Selon <bibl><author ref="#lacornutus">Phurnutus</author>,
+                                <title corresp="Survol de la tradition théologique grecque"/>
+                                <biblScope unit="page">p. 62</biblScope>
+                                <edition>
+                                    de l'<orig>édition de Cambridge <date when="1670">1670</date></orig>
+                                </edition>
+                                <editor corresp="Thomas Gale" ref="#tgale"/></bibl>,
+                            <name type="proper" rend="i">Nérée</name> étoit la mer,
+                            &amp; le nom de <name type="proper" rend="i">Nérée</name> venoit de
+                            <name xml:lang="GR" type="proper">νειόναι</name>, <w rend="i">nager</w>.
+                            On feignoit qu'il étoit vieillard, à cause de l'écume de la mer qui représente les cheveux blancs d'un homme avancé en âge.</def>
+                    </sense>
+                    <!-- Etymologie -->
+                    <etym>
+                        <term xml:lang="GR" type="proper" rend="i">Nereus</term>
+                        <term xml:lang="GR" type="common">νειόναι</term>
+                        <lang>Grec</lang>
+                    </etym>
+                    <!-- Groupe grammatical -->
+                    <gramGrp>
+                        <pos><reg>Nom propre</reg></pos>
+                        <number>
+                            <choice>
+                                <orig><abbr>s.</abbr></orig>
+                                <reg>singulier</reg>
+                            </choice>
+                        </number>
+                        <gen>
+                            <choice>
+                                <orig><abbr>m.</abbr></orig>
+                                <reg>masculin</reg>
+                            </choice>
+                        </gen>
+                    </gramGrp>
+                </entry>
+            </body>
+        </text>
+    </TEI>
+    <!--Quatrième entrée : Polyphème-->
+    <TEI n="4">
+        <teiHeader>
+            <fileDesc>
+                <titleStmt>
+                    <title>Édition de l'article "POLYPHÈME"</title>
+                </titleStmt>
+                <publicationStmt>
+                    <publisher ref="#enc">Ecole nationale des chartes</publisher>
+                </publicationStmt>
+                <sourceDesc>
+                    <biblStruct ref="#tome_6"/>
+                </sourceDesc>
+            </fileDesc>
+        </teiHeader>
+        <text>
+            <body>
+                <entry>
+                    <!-- Mot-clé et prononciation -->
+                    <form type="headword">
+                        <orth><persName ref="#polypheme">POLYPHÈME</persName></orth>
+                        <ref target="https://gallica.bnf.fr/ark:/12148/bpt6k50985p/f883.item"/>
+                    </form>
+                    <!-- Définition -->
+                    <sense>
+                        <def>Célèbre cyclope du <placeName ref="#etna">mont Etna</placeName>, qui
+                            étoit fils de <persName ref="#neptune">Neptune</persName>. <persName
+                                ref="#homere">Homère</persName> dit qu'il mangea quatre des
+                            compagnons d'<persName ref="#ulysse">Ulysse</persName>, &amp;
+                            qu'<persName ref="#ulysse">Ulysse</persName>, pour s'en venger,
+                            l'enivra, &amp; lui creva le seul oeil qu'il eût, qui étoit placé au
+                            milieu du front. Ce géant, malgré sa férocité naturelle, devint pourtant
+                            amoureux de la belle <persName ref="#galatee">Galatée</persName>,
+                            divinité marine, qui étoit elle-même éprise du berger <persName
+                                ref="#acis">Acis</persName>. <persName ref="#polypheme"
+                                    >Polyphème</persName> devint si jaloux de cette préférence, qu'il
+                            les observa de près, &amp; que les ayant trouvé ensemble, il écrasa d'un
+                            rocher le jeune <persName ref="#acis">Acis</persName>, qui fut
+                            métamorphosé en fleuve. On croit que <persName ref="#polypheme"
+                                >Polyphême</persName> étoit <roleName>Roi de <region ref="#sicile"
+                                    >Sicile</region></roleName>, dont <persName ref="#ulysse"
+                                        >Ulysse</persName> enleva la fille nommée <persName ref="#elpe"
+                                            >Elpé</persName>. Ce qui fit que ceux des compagnons d'<persName
+                                                ref="#ulysse">Ulysse</persName> qui tomberent entre les mains du Roi
+                            furent mis à mort, &amp; lui-même poursuivi jusqu'à ce qu'il sortit de
+                            l'ile.</def>
+                    </sense>
+                    <!-- Etymologie -->
+                    <etym>
+                        <term xml:lang="LAT" rend="i">Polyphemus</term>
+                        <lang>Grec</lang>
+                    </etym>
+                    <!-- Groupe grammatical -->
+                    <gramGrp>
+                        <pos><reg>Nom propre</reg></pos>
+                        <number>
+                            <choice>
+                                <orig><abbr>s.</abbr></orig>
+                                <reg>singulier</reg>
+                            </choice>
+                        </number>
+                        <gen>
+                            <choice>
+                                <orig><abbr>m.</abbr></orig>
+                                <reg>masculin</reg>
+                            </choice>
+                        </gen>
+                    </gramGrp>
+                </entry>
+            </body>
+        </text>
+    </TEI>
+</teiCorpus>

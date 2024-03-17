@@ -1,0 +1,99 @@
+@font-face {
+    font-family: diogenes;
+    src: url(./polices/diogenes/DIOGENES.ttf);
+}
+
+@font-face {
+    font-family: jsl;
+    src: url(./polices/jsl_ancient/jancient.ttf);
+}
+
+body {
+    background-color: rgb(123, 220, 255);
+    color: rgb(0, 0, 0);
+    font-family:Verdana, 'Times New Roman', Tahoma, sans-serif;
+}
+
+.page_title {
+    font-family: diogenes;
+    color: rgb(0, 119, 162);
+    text-align: center;
+    font-size: larger;
+    font-size: 3em;
+  }
+
+.small_title {
+    font-family: jsl;
+    color: rgb(0, 0, 75);
+    text-align: center;
+    font-size: larger;
+    font-size: 1.5em;
+  }
+
+.entry {
+    background-color: azure;
+    border: solid rgb(0, 0, 0) 2px;
+    padding: 2%;
+    margin-left: 6%;
+    margin-right: 6%;
+    box-shadow: 2px 2px 2px rgb(58, 58, 58);
+}
+
+.index_entry {
+    border: solid rgb(0, 0, 0) 1px;
+    margin-top: 1%;
+    padding: 2%;
+}
+
+.general {
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.content {
+    border: 1cm;
+    border-radius: 20px;
+    text-align: justify;
+}
+
+.metadata_main {
+    font-style: 5%;
+}
+
+.metadata_sub {
+    border: solid rgb(0, 0, 0) 1px;
+    margin-top: 1%;
+}
+
+#main_title {
+    font-family: jsl;
+    color: rgb(0, 0, 75);
+    font-size:2em;
+}
+
+#sub_title {
+    font-family: diogenes;
+    font-size:1.2em;
+}
+
+#body_header {
+    text-align: center; margin-bottom: 4%;
+}
+
+#home_page {
+    background: linear-gradient(to right, rgb(123, 220, 255), rgb(237, 250, 255));
+}
+
+#shortcuts {
+    font-weight: bold;
+}
+
+#header {
+    font-style: 1%;
+}
+
+#footer {
+    font-style: italic 1.2rem "Tahoma", serif;
+    text-align: center;
+    padding: 2%;
+}
