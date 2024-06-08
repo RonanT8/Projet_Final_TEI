@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+CORRECTION
+Projet éditorial et documentation bien aboutis : l'encodage est parfois même un peu "over engineered"
+L'usage des balises est ingénieux, on sent un effort manifeste d'exploration des guidelines TEI
+Dommage que l'appel au schematron soit absent du document TEI : cela rendait l'ineffectivité de la constrainSpec invisible
+Voir correction au fil des deux documents
+-->
+
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:s="http://purl.oclc.org/dsdl/schematron"
    xml:lang="FR">
    <teiHeader>
@@ -12,9 +21,8 @@
             <publisher>École nationale des chartes</publisher>
          </publicationStmt>
          <sourceDesc>
-            <p>Dérivé de <ref
-                  target="https://www.tei-c.org/Vault/P5/current/xml/tei/odd/p5subset.xml">l'ODD par
-                  défaut</ref> après analyse du fichier TEI_Projet_Final.xml</p>
+            <p>Dérivé de <ref target="https://www.tei-c.org/Vault/P5/current/xml/tei/odd/p5subset.xml">l'ODD par
+               défaut</ref> après analyse du fichier TEI_Projet_Final.xml</p>
          </sourceDesc>
       </fileDesc>
    </teiHeader>
@@ -36,7 +44,7 @@
                   <p>Ce projet entre dans le cadre d'une évaluation finale d'un cours à l'École
                      nationale des chartes. Il a été réalisé entièrement par un étudiant en M2 TNAH,
                      Ronan Vichot, promotion 2023-2024. Le Dictionnaire de Trévoux a été sélectionné
-                     de plein gré par l'étudiant. Contraint par les consignes de l'exercice et par
+                     de plein gré  <!--volontairement ?--> par l'étudiant. Contraint par les consignes de l'exercice et par
                      un temps limité, il a paru convenable d'exploiter différentes entrées du
                      dictionnaire sur des personnages liés par leur histoire. Le premier, Acis, a
                      été choisi dans le premier tome, tandis que les trois suivants ont nécessité
@@ -60,7 +68,7 @@
                   <p>Le projet pose la première pierre de ce qui pourrait devenir une grande base de
                      données croisées rassemblant tous les personnages faisant l'objet d'une entrée
                      dans un même dictionnaire. En effet, la méthode utilisée s'appliquerait aussi
-                     bien à un autre dictionnaire ou à d'autres personnages liés dans une toute
+                     bien à un autre dictionnaire ou à d'autres personnages liés dans une tout
                      autre thématique. Le projet tel qu'il est présenté peut servir aux lecteurs ou
                      chercheurs souhaitant retrouver les personnages choisis sous une forme claire,
                      détaillée et structurée. L'idée est de proposer une alternative aux documents
@@ -68,12 +76,12 @@
                      nombre de métadonnées enrichissant leur intérêt. Il est désormais plus facile
                      de passer d'une entrée à une autre ayant un rapport direct, de même qu'il est
                      plus aisé d'identifier les éléments probants de l'entrée, tels que les noms
-                     propres.</p>
+                     propres.</p> <!--Bien-->
                   <p>Le présent projet peut être utilisé comme modèle pour développer un projet
                      similaire, car sa structure est pensée pour être adaptative et normalisée,
                      grâce à des spécifications ODD cohérentes avec ses besoins.</p>
                   <p>Tous les personnages, vivants ou morts, réels ou non, sont distingués par un
-                     identifiant xml:id unique, ce qui ouvre des possibilités pour une
+                     identifiant <att>xml:id</att> unique, ce qui ouvre des possibilités pour une
                      transformation XSL ; pour regrouper toutes les mentions d'un même personnage
                      par exemple. Il en va de même pour les lieux et les rôles.</p>
                   <p>Le projet prend soin de développer au besoin les références bibliographiques,
@@ -86,7 +94,7 @@
             <div>
                <head>Les métadonnées du projet (<gi>teiHeader</gi>)</head>
                <p>Cette partie est consacrée à la description du contenu des différents
-                  sous-éléments du teiHeader.</p>
+                  sous-éléments du <gi>teiHeader</gi>.</p>
                <div>
                   <head>Le <gi>titleStmt</gi></head>
                   <p>Le <gi>titleStmt</gi> contient essentiellement le nom de l'étudiant et de la
@@ -97,7 +105,7 @@
                <div>
                   <head>L'<gi>editionStmt</gi> et le <gi>publicationStmt</gi></head>
                   <p>La réalisation du projet par l'étudiant est rappelée dans
-                        l'<gi>editionStmt</gi>. Le <gi>publicationStmt</gi> contient quant à lui
+                     l'<gi>editionStmt</gi>. Le <gi>publicationStmt</gi> contient quant à lui
                      l'adresse physique de l'école, qui fait office ici d'institution de référence
                      du projet.</p>
                </div>
@@ -111,7 +119,7 @@
                   <div>
                      <head>Les métadonnées du Dictionnaire de Trévoux</head>
                      <p>Il faut ici distinguer deux parties. La première, définie par l'élément
-                           <gi>bibl</gi>, relève des métadonnées propres à l'ensemble du
+                        <gi>bibl</gi>, relève des métadonnées propres à l'ensemble du
                         dictionnaire. Les données sont valables pour chacun des tomes exploités,
                         mais aussi pour les autres de la même édition dont l'usage n'a pas été
                         nécessaire. Isoler ces données a permis d'éviter des répétitions inutiles à
@@ -119,18 +127,17 @@
                      <p>La deuxième partie renvoie à l'élément <gi>listBibl</gi> sous lequel sont
                         listés chacun des tomes utilisés dans le projet éditorial. Si ce dernier
                         fait l'objet d'une extension avec l'ajout d'autres entrées, un nouveau tome
-                        pourra être mentionnées dans une nouvelle balise <gi>biblStruct</gi> à cet
+                        pourra être mentionné dans une nouvelle balise <gi>biblStruct</gi> à cet
                         endroit. Les tomes sont rangés dans l'ordre croissant et contiennent chacun
                         trois attributs, à savoir leur identifiant <att>xml:id</att>, leur
-                           <att>type</att>
-                        <val>volume</val>, qui souligne le lien avec l'élément <gi>bibl</gi> plus
-                        haut dont la valeur de l'attribut <att>type </att> est <val>serie</val>, et
+                        <att>type</att> <val>volume</val>, qui souligne le lien avec l'élément <gi>bibl</gi> plus
+                        haut dont la valeur de l'attribut <att>type</att> est <val>serie</val>, et
                         enfin <att>xml:lang</att> qui rappelle que l'ensemble du volume est en
                         langue française.</p>
                      <p>Pour chaque volume, les informations importantes sont surtout leur URI
                         Gallica, contenue dans l'élément <gi>ref</gi>, et leur plage de mots,
                         précisée dans les attributs <att>from</att> et <att>to</att> de l'élément
-                           <gi>biblScope</gi>.</p>
+                        <gi>biblScope</gi>.</p>
                   </div>
                   <div>
                      <head>Les index</head>
@@ -144,20 +151,21 @@
                         <p>Parce que leurs places sont différentes, les personnages en rapport avec
                            le projet éditorial ont été divisés en trois groupes, chacun distingué
                            par le <att>type</att> d'un élément <gi>listPerson</gi> : les personnages
-                              <val>réels_actuels</val>, les <val>réels_passés</val> et les
-                              <val>mythologiques</val>. <list>
+                           <val>reels_actuels</val>, les <val>reels_passes</val> et les
+                           <val>mythologiques</val>.
+                           <list>
                               <item>La première catégorie relève des personnes vivantes qui ne sont
                                  donc pas connues du Dictionnaire de Trévoux, mais figurent dans le
                                  document TEI du projet éditorial. Il s'agit ici de l'étudiant et de
-                                 sa professeur, mais cette sections pourrait recenser toute autre
+                                 sa professeure, mais cette section pourrait recenser toute autre
                                  personne similaire.</item>
                               <item>La seconde catégorie appartient aux auteurs auxquels le
                                  Dictionnaire de Trévoux fait référence. Si la plupart sont des
-                                 auteurs classiques de l'antiquité, leur existance n'est bornée par
+                                 auteurs classiques de l'antiquité, leur existence n'est bornée par
                                  rien d'autre que leur présence dans le texte encodé et, donc, par
                                  leurs travaux antérieurs à l'édition du dictionnaire
                                  exploitée.</item>
-                              <item>La troisième catégorie est destinée à relever les personnage
+                              <item>La troisième catégorie est destinée à relever les personnages
                                  mythologiques relevés dans les entrées. Chacun pourrait faire
                                  l'objet d'une entrée supplémentaire dans le projet éditorial.
                               </item>
@@ -189,9 +197,9 @@
                <div>
                   <head>L'<gi>encodingDesc</gi> et le <gi>profileDesc</gi></head>
                   <p>Ces deux brefs sous-éléments sont les derniers du <gi>teiHeader</gi>.
-                        L'<gi>encodingDesc</gi> rappelle le cadre scolaire dans lequel le projet
+                     L'<gi>encodingDesc</gi> rappelle le cadre scolaire dans lequel le projet
                      éditorial a été piloté. Le <gi>profileDesc</gi> contient quant à lui un résumé
-                     du contenu qui suit. Les numéros indiqués entre parenthèses proche des noms des
+                     du contenu qui suit. Les numéros indiqués entre parenthèses proches des noms des
                      personnages indiquent leur ordre. Ils sont représentés par la valeur de
                      l'attribut <att>n</att> dans leur balise <gi>TEI</gi> respective.</p>
                </div>
@@ -219,9 +227,9 @@
                   <head>Le contenu de l'entrée (<gi>entry</gi>)</head>
                   <p>Cette section contient l'encodage de l'entrée proprement dite. Sa structure
                      repose sur un modèle présent dans TEI All et décrit dans les Guidelines, voir
-                        <ref target="https://tei-c.org/release/doc/tei-p5-doc/en/html/DI.html">la
-                        référence suivante</ref>. L'élément <gi>text</gi> ne contient qu'un élément
-                        <gi>body</gi> contenant lui-même une seule <gi>entry</gi>. </p>
+                     <ref target="https://tei-c.org/release/doc/tei-p5-doc/en/html/DI.html">la
+                     référence suivante</ref>. L'élément <gi>text</gi> ne contient qu'un élément
+                     <gi>body</gi> contenant lui-même une seule <gi>entry</gi>. </p>
                   <div>
                      <head>La forme (<gi>form</gi>)</head>
                      <p>La première forme mentionnée est toujours celle inscrite dans le
@@ -251,12 +259,12 @@
                         grâce à l'attribut <att>n</att> dans des éléments <gi>def</gi> distincts. En
                         fonction du sens du mot, celui-ci peut ne pas renvoyer au personnage ciblé.
                         Dans ce cas, l'indication <val>common</val> du <att>type</att> des balises
-                        de noms explicite qu'il ne s'agit pas du personnage en question. Par
+                        de noms rend explicite qu'il ne s'agit pas du personnage en question. Par
                         exemple, dans cette définition de Galatée comme nom d'une tulipe :</p>
                      <egXML xmlns="http://www.tei-c.org/ns/Examples">
                         <def n="3"><name type="common">GALATÉE</name>. Terme de Fleuriste. C'est le
                            nom d'une tulipe qui est panachée d'un isabelle blanchissant, avec du
-                           jaune dorée. <bibl><author>MORIN</author></bibl>.</def>
+                           jaune doré. <bibl><author>MORIN</author></bibl>.</def>
                      </egXML>
                   </div>
                   <div>
@@ -266,23 +274,23 @@
                         L'élément <gi>etym</gi> relève l'origine étymologique du nom, sans que
                         celle-ci ait besoin d'être explicitement mentionnée dans l'entrée originale.
                         On peut aussi y trouver une forme ancienne du mot-clé à condition que
-                        celle-ci soit précisée dans l'édition originale. Par exemple :</p>
+                        celle-ci soit précisée dans l'édition originale. Par exemple :</p><!--Bien-->
                      <egXML xmlns="http://www.tei-c.org/ns/Examples">
                         <etym>
-                           <term xml:lang="GR" type="proper" rend="i">Nereus <term xml:lang="GR"
-                                 type="common">νειόναι</term>
+                           <term xml:lang="GR" type="proper" rend="i">Nereus
+                              <term xml:lang="GR" type="common">νειόναι</term>
                            </term>
                            <lang>Grec</lang>
                         </etym>
                      </egXML>
                      <p>L'élément <gi>gramGrp</gi> décrit la nature du mot-clé de l'entrée
-                           (<gi>pos</gi>), son nombre (<gi>number</gi>) et son genre grammatical
-                           (<gi>gen</gi>). Les données mentionnées dans la balise <gi>orig</gi> sont
+                        (<gi>pos</gi>), son nombre (<gi>number</gi>) et son genre grammatical
+                        (<gi>gen</gi>). Les données mentionnées dans la balise <gi>orig</gi> sont
                         tirées de l'édition originale du Dictionnaire de Trévoux. Celles dans la
                         balise <gi>reg</gi> sont, au contraire, des formes développées par le
                         responsable de l'encodage. Enfin, la balise <gi>xr</gi> contient les
                         références bibliographiques éventuellement listées à la fin de l'entrée.
-                        Cette partie est optionnelle, car les références mmentionnées dans la
+                        Cette partie est optionnelle, car les références mentionnées dans la
                         définition sont directement inscrites dans la balise <gi>sense</gi> plus
                         haut.</p>
                   </div>
@@ -297,14 +305,14 @@
                      les index du <gi>sourceDesc</gi></head>
                   <p>Les trois catégories de l'index de personnages ont chacune nécessité
                      l'élaboration d'un modèle différent. En effet, les informations propres à
-                     chaque catégorie de personnages sont plus ou moins pertinentes ou difficile à
+                     chaque catégorie de personnages sont plus ou moins pertinentes ou difficiles à
                      déterminer.</p>
-                  <p>L'index <val>réels_actuels</val> repose sur le nom de l'individu dont on
+                  <p>L'index <val>reels_actuels</val> repose sur le nom de l'individu dont on
                      distingue le prénom du nom de famille. Son <gi>occupation</gi> indique son
                      métier ou son activité dans l'organisme dans lequel il travaille. L'adresse
                      mail, inopportune pour les autres catégories, est mentionnée afin de suggérer
                      au lecteur un contact facile.</p>
-                  <p>Les <gi>réels_passés</gi> sont, comme nous l'avons dit, des auteurs. Il
+                  <p>Les <gi>reels_passes</gi> sont, comme nous l'avons dit, des auteurs. Il
                      convient donc d'indiquer l'environnement et le contexte de leur écriture, ce
                      qui passe par leur rôle social, leurs dates de vie et la langue dans laquelle
                      ils écrivent. C'est ainsi que l'on peut relever des caractères particuliers
@@ -312,8 +320,7 @@
                      se mêlent à ceux des auteurs classiques :</p>
                   <egXML xmlns="http://www.tei-c.org/ns/Examples">
                      <person xml:id="annius">
-                        <persName>Annius <nameLink>de </nameLink>
-                           <settlement>Viterbe</settlement></persName>
+                        <persName>Annius <nameLink>de </nameLink> <settlement>Viterbe</settlement></persName>
                         <occupation>
                            <roleName>Historien</roleName>, <roleName>faussaire</roleName>
                         </occupation>
@@ -321,9 +328,9 @@
                         <langKnowledge><langKnown tag="LAT">Latin</langKnown></langKnowledge>
                         <birth when="1432">Vers 1432</birth>
                         <death when="1502">1502</death>
-                        <note><ref type="URL"
-                              target="https://catalogue.bnf.fr/ark:/12148/cb12037519j">Notice
-                              BnF</ref></note>
+                        <note>
+                           <ref type="URL" target="https://catalogue.bnf.fr/ark:/12148/cb12037519j">Notice BnF</ref>
+                        </note>
                      </person>
                   </egXML>
                   <p>Les personnages <gi>mythologiques</gi>, enfin, sont décrits de manière sommaire
@@ -336,35 +343,34 @@
                   <p>À noter que tous les index sont triés dans l'ordre alphabétique. Aussi, le
                      positionnement des trois catégories d'index facilite le repérage du lecteur en
                      servant de transition entre les métadonnées du document et le texte encodé :
-                     les personnages <val>réels_actuels</val> sont en premier, plus proches des
+                     les personnages <val>reels_actuels</val> sont en premier, plus proches des
                      informations relatives au projet éditorial, tandis que les personnages
-                        <val>mythologiques</val> sont au plus près des entrées qui les
+                     <val>mythologiques</val> sont au plus près des entrées qui les
                      concernent.</p>
                </div>
                <div>
                   <head>Une structure de référence souple en mesure de s'adapter</head>
                   <p>Le choix a été fait d'intégrer un moyen d'écrire du texte libre dans la balise
-                        <gi>xr</gi>. En effet, comme pour les définitions, nous procédons à une
+                     <gi>xr</gi>. En effet, comme pour les définitions, nous procédons à une
                      copie exacte du texte original pour rédiger les références en fin d'entrée. Or,
                      étant donné l'ancienneté du dictionnaire, la forme du texte est souvent libre.
                      L'ajout d'un élément <gi>w</gi> permet à la fois de respecter la forme
                      originale mais aussi d'appliquer aux mots la graphie avec laquelle ils sont
-                     écrits dans l'édition utilisée. Par exemple, à la fin de l'entrée "GALATHÉE"
-                     :</p>
+                     écrits dans l'édition utilisée. Par exemple, à la fin de l'entrée "GALATHÉE" :</p>
                   <egXML xmlns="http://www.tei-c.org/ns/Examples">
                      <xr n="1">
-                        <w rend="i">Voyez</w>
-                        <bibl><author ref="#herodote">Hérodote</author>, <biblScope unit="line">L.
-                              II</biblScope></bibl><w>,</w>
-                        <bibl><author ref="#amarcellin">Ammien Marcellin</author>, <biblScope
-                              unit="line">L. XV</biblScope></bibl><w>,</w>
-                        <bibl><ref
-                              target="https://www.persee.fr/doc/barb_0001-4133_1983_num_69_1_55625"
-                              >le faux <persName ref="#berose">Bérose</persName></ref> d'<author
-                              ref="#annius">Annius de Viterbe</author>, <biblScope unit="line">L.
-                              V</biblScope></bibl><w>, &amp;</w>
-                        <bibl><author ref="#diodore">Diodore de Sicile</author>, <biblScope
-                              unit="line">L. IV</biblScope></bibl><w>.</w>
+                        <w rend="i"> Voyez</w>
+                        <bibl><author ref="#herodote">Hérodote</author>, <biblScope unit="line">L. II</biblScope></bibl>
+                        <w>, </w> <!--pourquoi ne pas juste laisser du texte non-balisé ?-->
+                        <bibl><author ref="#amarcellin">Ammien Marcellin</author>, <biblScope unit="line">L. XV</biblScope></bibl>
+                        <w>, </w>
+                        <bibl>
+                           <ref target="https://www.persee.fr/doc/barb_0001-4133_1983_num_69_1_55625">le faux <persName ref="#berose">Bérose</persName></ref>
+                           d'<author ref="#annius">Annius de Viterbe</author>,m<biblScope unit="line">L. V</biblScope>
+                        </bibl>
+                        <w>, &amp;</w>
+                        <bibl><author ref="#diodore">Diodore de Sicile</author>, <biblScope unit="line">L. IV</biblScope></bibl>
+                        <w>.</w>
                      </xr>
                   </egXML>
                   <p>L'attribut <att>rend</att> permet ici de faciliter la transformation du mot en
@@ -377,36 +383,35 @@
                </div>
                <div>
                   <head>Le remplacement de l'attribut <att>sameAs</att> de <gi>biblStruct</gi> par
-                        <att>ref</att></head>
+                     <att>ref</att></head>
                   <p>Par défaut, dans TEI All, l'élément <gi>biblStruct</gi> ne peut renvoyer à une
                      référence qu'avec l'attribut <att>sameAs</att>. Dans un souci de lisibilité,
                      de clarté et d'uniformité avec les index, il a paru pertinent de remplacer
-                        <att>sameAs</att> par <att>ref</att>, dont l'usage est déjà fréquent dans
+                     <att>sameAs</att> par <att>ref</att>, dont l'usage est déjà fréquent dans
                      l'encodage. Aucun autre élément, en effet, n'avait besoin de l'attribut
-                        <att>sameAs</att> alors que proposer une solution de renvoi pour les
+                     <att>sameAs</att> alors que proposer une solution de renvoi pour les
                      références des tomes était essentiel afin de ne pas alourdir inutilement
                      l'encodage. Les deux attributs ont un usage sensiblement identique. L'attribut
-                        <att>ref</att> permet donc de lier l'encodage des entrées avec les
+                     <att>ref</att> permet donc de lier l'encodage des entrées avec les
                      métadonnées des volumes du Dictionnaire de Trévoux, présentes dans le
-                        <gi>teiHeader</gi> du document.</p>
+                     <gi>teiHeader</gi> du document.</p>
                </div>
                <div>
                   <head>La numérotation des entrées, des références et des définitions</head>
                   <p>Garder le compte des entrées encodées est essentiel pour se repérer et les
                      exploiter indépendamment par la suite. C'est pourquoi l'emploi d'un attribut
-                        <att>n</att> a été normalisé dans chaque balise <gi>TEI</gi>. Il en va de
+                     <att>n</att> a été normalisé dans chaque balise <gi>TEI</gi>. Il en va de
                      même pour les <gi>xr</gi> qui, bien qu'optionnels, doivent être numérotés s'ils
                      sont utilisés. À l'inverse, la numérotation des balises <gi>def</gi> n'est
                      nécessaire que s'il y en a plusieurs.</p>
                </div>
                <div>
-                  <head>L'obligation d'identifier les entrées des index avec
-                     <att>xml:id</att></head>
+                  <head>L'obligation d'identifier les entrées des index avec <att>xml:id</att></head>
                   <p>Les jonctions des personnages, lieux et organismes dans le texte original ne
                      pourraient être liées ni entre elles ni à d'autres références si elles n'étaient
                      pas liées chacune à un identifiant propre. C'est ce que permet l'attribut
-                        <att>xml:id</att> qui a été rendu obligatoire dans les index du
-                        <gi>teiHeader</gi>. De cette manière, tous les identifiants sont créés au
+                     <att>xml:id</att> qui a été rendu obligatoire dans les index du
+                     <gi>teiHeader</gi>. De cette manière, tous les identifiants sont créés au
                      même endroit dans le document TEI, ce qui permet de tous les retrouver sans
                      problème. Les renvois aux identifiants sont possibles dans tout le document
                      grâce à la balise <gi>ref</gi> et sa valeur d'attribut contenant un dièse (#)
@@ -417,8 +422,8 @@
                   <p>Le document encodé contient des dates de diverses sortes, certaines précises au
                      jour près, d'autres approximatives à l'échelle d'un siècle. Pour uniformiser
                      leurs apparitions, l'usage de l'élément <gi>date</gi> est généralisé. Seulement
-                     dans l'index des personnages <val>réels_passés</val>, l'emploi de
-                        <gi>birth</gi> et <gi>death</gi> est préféré. Dans tous les cas, deux
+                     dans l'index des personnages <val>reels_passes</val>, l'emploi de
+                     <gi>birth</gi> et <gi>death</gi> est préféré. Dans tous les cas, deux
                      solutions sont possibles :</p>
                   <list>
                      <item>Soit la date est précise, auquel cas l'attribut <att>when</att>
@@ -651,20 +656,6 @@
                      <attDef ident="corresp" mode="delete"/>
                      <attDef ident="sameAs" mode="delete"/>
                      <attDef ident="type" mode="delete"/>
-                     <attDef ident="subtype" mode="delete"/>
-                  </attList>
-               </elementSpec>
-               <elementSpec ident="listPerson" mode="change">
-                  <attList>
-                     <attDef ident="corresp" mode="delete"/>
-                     <attDef ident="sameAs" mode="delete"/>
-                     <attDef ident="type" mode="change">
-                        <valList mode="add" type="closed">
-                           <valItem ident="mythologiques"/>
-                           <valItem ident="réels_actuels"/>
-                           <valItem ident="réels_passés"/>
-                        </valList>
-                     </attDef>
                      <attDef ident="subtype" mode="delete"/>
                   </attList>
                </elementSpec>
@@ -901,12 +892,14 @@
                      étant libre, l'élément 'w' permet de distinguer les éléments textuels des
                      références propres.</desc>
                   <content>
+                     <!--OK-->
                      <alternate maxOccurs="unbounded">
                         <elementRef key="w" minOccurs="0"/>
                         <elementRef key="bibl" minOccurs="1"/>
                      </alternate>
                   </content>
                   <attList>
+                     <!--OK-->
                      <attDef ident="n" mode="change" usage="req"/>
                      <!--fin ajout-->
                      <attDef ident="type" mode="delete"/>
@@ -1561,6 +1554,7 @@
                   </content>
                   <attList>
                      <attDef ident="rend" mode="add">
+                        <!--OK-->
                         <defaultVal>none</defaultVal>
                         <valList mode="add" type="closed">
                            <valItem ident="none"/>
@@ -1590,6 +1584,7 @@
                <elementSpec ident="TEI" mode="change">
                   <attList>
                      <!--début ajout-->
+                     <!--OK-->
                      <attDef ident="n" mode="change" usage="req"/>
                      <!--fin ajout-->
                      <attDef ident="corresp" mode="delete"/>
@@ -1612,17 +1607,45 @@
                      <attDef ident="sameAs" mode="delete"/>
                   </attList>
                </elementSpec>
+               <!--CORRECTION-->
+               <elementSpec ident="listPerson" mode="change">
+                  <constraintSpec ident="id_pers" scheme="schematron">
+                     <constraint>
+                        <s:rule context="tei:teiCorpus//tei:listPerson/tei:person">
+                           <s:assert test="@xml:id"> Toutes les entrées des index de
+                              personnages doivent attribuer un identifiant xml à leur personnage.
+                           </s:assert>
+                        </s:rule>
+                     </constraint>
+                  </constraintSpec>
+                  <attList>
+                     <attDef ident="corresp" mode="delete"/>
+                     <attDef ident="sameAs" mode="delete"/>
+                     <attDef ident="type" mode="change">
+                        <!--OK-->
+                        <valList mode="add" type="closed">
+                           <valItem ident="mythologiques"/>
+                           <valItem ident="reels_actuels"/>
+                           <valItem ident="reels_passes"/>
+                        </valList>
+                     </attDef>
+                     <attDef ident="subtype" mode="delete"/>
+                  </attList>
+               </elementSpec>
             </schemaSpec>
             <!--début ajout-->
-            <constraintSpec ident="id_pers" scheme="schematron">
+            <!--Une constraintSpec doit être placée dans un elementSpec et dans schemaSpec ! correction ci-dessus-->
+            <!--<constraintSpec ident="id_pers" scheme="schematron">
                <constraint>
                   <s:rule context="tei:listPerson">
+                     Avec cette règle, on vérifie que listPerson contient bien un person@xml:id,
+                     mais pas que toutes les person dans listPerson ont bien cet attribut
                      <s:assert test="tei:person[@xml:id]"> Toutes les entrées des index de
                         personnages doivent attribuer un identifiant xml à leur personnage.
                      </s:assert>
                   </s:rule>
                </constraint>
-            </constraintSpec>
+            </constraintSpec>-->
             <!--fin ajout-->
          </div>
       </body>

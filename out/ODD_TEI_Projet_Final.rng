@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2024-02-23T14:59:09Z. . 
+Schema generated from ODD source 2024-06-08T08:21:05Z. . 
 TEI Edition: P5 Version 4.7.0. Last updated on 16th November 2023, revision e5dd73ed0 
 TEI Edition Location: https://www.tei-c.org/Vault/P5/4.7.0/ 
   
@@ -4215,6 +4215,19 @@ Normalization 12. Critical Apparatus]</a:documentation>
                </group>
             </oneOrMore>
          </group>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="oddbyexample-listPerson-id_pers-constraint-rule-26">
+            <s:rule xmlns="http://www.tei-c.org/ns/1.0"
+                    xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                    xmlns:s="http://purl.oclc.org/dsdl/schematron"
+                    xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    context="tei:teiCorpus//tei:listPerson/tei:person">
+               <s:assert test="@xml:id"> Toutes les entrées des index de
+                              personnages doivent attribuer un identifiant xml à leur personnage.
+                           </s:assert>
+            </s:rule>
+         </pattern>
          <ref name="att.global.attribute.xmlid"/>
          <ref name="att.global.attribute.n"/>
          <ref name="att.global.attribute.xmllang"/>
@@ -4234,9 +4247,9 @@ Normalization 12. Critical Apparatus]</a:documentation>
                <choice>
                   <value>mythologiques</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                  <value>réels_actuels</value>
+                  <value>reels_actuels</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                  <value>réels_passés</value>
+                  <value>reels_passes</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                </choice>
             </attribute>
@@ -4302,7 +4315,7 @@ Normalization 12. Critical Apparatus]</a:documentation>
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-location-calendar-check-location-constraint-rule-26">
+                  id="oddbyexample-location-calendar-check-location-constraint-rule-27">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -4346,7 +4359,7 @@ Normalization 12. Critical Apparatus]</a:documentation>
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(nationality) contains an informal description of a person's present or past nationality or citizenship. [15.2.2. The Participant Description]</a:documentation>
          <ref name="macro.phraseSeq"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-nationality-calendar-check-nationality-constraint-rule-27">
+                  id="oddbyexample-nationality-calendar-check-nationality-constraint-rule-28">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -4390,7 +4403,7 @@ Normalization 12. Critical Apparatus]</a:documentation>
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(occupation) contains an informal description of a person's trade, profession or occupation. [15.2.2. The Participant Description]</a:documentation>
          <ref name="macro.specialPara"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-occupation-calendar-check-occupation-constraint-rule-28">
+                  id="oddbyexample-occupation-calendar-check-occupation-constraint-rule-29">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -4601,7 +4614,7 @@ Normalization 12. Critical Apparatus]</a:documentation>
             </choice>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-trait-calendar-check-trait-constraint-rule-29">
+                  id="oddbyexample-trait-calendar-check-trait-constraint-rule-30">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -5028,7 +5041,7 @@ Suggested values include: 1] main; 2] hom (homograph); 3] xref (cross reference)
       </optional>
    </define>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="oddbyexample-att.repeatable-MINandMAXoccurs-constraint-rule-30">
+            id="oddbyexample-att.repeatable-MINandMAXoccurs-constraint-rule-31">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -5061,7 +5074,7 @@ Suggested values include: 1] main; 2] hom (homograph); 3] xref (cross reference)
       </optional>
    </define>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="oddbyexample-att.deprecated-validUntil-deprecation-two-month-warning-constraint-rule-32">
+            id="oddbyexample-att.deprecated-validUntil-deprecation-two-month-warning-constraint-rule-33">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -5082,7 +5095,7 @@ Suggested values include: 1] main; 2] hom (homograph); 3] xref (cross reference)
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="oddbyexample-att.deprecated-validUntil-deprecation-should-be-explained-constraint-rule-33">
+            id="oddbyexample-att.deprecated-validUntil-deprecation-should-be-explained-constraint-rule-34">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -5137,7 +5150,7 @@ Suggested values include: 1] main; 2] hom (homograph); 3] xref (cross reference)
       <element name="moduleRef">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(module reference) references a module which is to be incorporated into a schema. [22.2. Modules and Schemas]</a:documentation>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-moduleRef-modref-constraint-rule-34">
+                  id="oddbyexample-moduleRef-modref-constraint-rule-35">
             <rule xmlns:rng="http://relaxng.org/ns/structure/1.0"
                   xmlns:s="http://purl.oclc.org/dsdl/schematron"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -5148,7 +5161,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-moduleRef-not-same-prefix-constraint-rule-35">
+                  id="oddbyexample-moduleRef-not-same-prefix-constraint-rule-36">
             <rule xmlns:rng="http://relaxng.org/ns/structure/1.0"
                   xmlns:s="http://purl.oclc.org/dsdl/schematron"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -5159,7 +5172,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-moduleRef-not-except-and-include-constraint-rule-36">
+                  id="oddbyexample-moduleRef-not-except-and-include-constraint-rule-37">
             <rule xmlns:rng="http://relaxng.org/ns/structure/1.0"
                   xmlns:s="http://purl.oclc.org/dsdl/schematron"
                   xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -5269,7 +5282,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </zeroOrMore>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-elementSpec-child-constraint-based-on-mode-constraint-rule-37">
+                  id="oddbyexample-elementSpec-child-constraint-based-on-mode-constraint-rule-38">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -5410,7 +5423,7 @@ Child elements of <name/> are only allowed when an external module is being load
              prefix="teix"
              uri="http://www.tei-c.org/ns/Examples"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-attDef-attDefContents-constraint-assert-32">
+                  id="oddbyexample-attDef-attDefContents-constraint-assert-33">
             <rule context="tei:attDef">
                <assert xmlns:rng="http://relaxng.org/ns/structure/1.0"
                        xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -5422,7 +5435,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-attDef-noDefault4Required-constraint-rule-39">
+                  id="oddbyexample-attDef-noDefault4Required-constraint-rule-40">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -5433,7 +5446,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-attDef-defaultIsInClosedList-twoOrMore-constraint-rule-40">
+                  id="oddbyexample-attDef-defaultIsInClosedList-twoOrMore-constraint-rule-41">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -5447,7 +5460,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-attDef-defaultIsInClosedList-one-constraint-rule-41">
+                  id="oddbyexample-attDef-defaultIsInClosedList-one-constraint-rule-42">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -5657,7 +5670,7 @@ Child elements of <name/> are only allowed when an external module is being load
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(sponsor) specifies the name of a sponsoring organization or institution. [2.2.1. The Title Statement]</a:documentation>
          <ref name="macro.phraseSeq.limited"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-sponsor-calendar-check-sponsor-constraint-rule-42">
+                  id="oddbyexample-sponsor-calendar-check-sponsor-constraint-rule-43">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -5782,7 +5795,7 @@ Child elements of <name/> are only allowed when an external module is being load
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-idno-calendar-check-idno-constraint-rule-43">
+                  id="oddbyexample-idno-calendar-check-idno-constraint-rule-44">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -6429,7 +6442,7 @@ Child elements of <name/> are only allowed when an external module is being load
       </attribute>
    </define>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="oddbyexample-att.identified-spec-in-module-constraint-rule-44">
+            id="oddbyexample-att.identified-spec-in-module-constraint-rule-45">
       <rule xmlns:rng="http://relaxng.org/ns/structure/1.0"
             xmlns:s="http://purl.oclc.org/dsdl/schematron"
             xmlns:xi="http://www.w3.org/2001/XInclude"
